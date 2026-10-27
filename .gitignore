@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+*.log
+dist/
+docs/source-home.html
+docs/fonts.css
