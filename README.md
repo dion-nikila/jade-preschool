@@ -11,7 +11,7 @@ A complete, independent website concept for Jade Preschool and Daycare in Colomb
 - **Home:** a memorable introduction and clear routes into the school.
 - **Our approach:** the thinking behind learning through play.
 - **Programmes:** Playgroup, Nursery, Kindergarten and Day Care, with individual enquiry links.
-- **Life at Jade:** real school photography, an accessible photo viewer and an illustrative daily rhythm.
+- **Life at Jade:** a photographic look around the school, with an accessible photo viewer.
 - **Visit & admissions:** practical FAQs and an enquiry composer.
 - **Privacy & credits:** honest information about the independent concept, data handling and photography.
 
@@ -38,7 +38,8 @@ Builds every page and checks local links, fragment targets, image references, fo
 
 ```text
 assets/                 Local fonts, original CSS/JS, icons and school photographs
-scripts/build.mjs       Shared page components, content and static HTML generation
+scripts/build.mjs       Shared layouts and static HTML generation
+scripts/content.mjs     Programmes, leadership and admissions information
 scripts/check.mjs       Generated-site validation
 scripts/serve.mjs       Dependency-free local preview server
 docs/RESEARCH.md        Sources, competitive observations and design rationale
@@ -51,7 +52,7 @@ docs/image-credits.json Original photography sources
 
 ## Design
 
-Forest green, warm cream, butter yellow and small terracotta accents. Bricolage Grotesque and DM Sans are self-hosted under the SIL Open Font License. Still photography and restrained SVG motifs provide character without autoplay carousels, scroll prompts, tracking scripts or animation dependencies.
+The school’s original logo, Newsreader display typography, DM Sans body text, rectangular documentary photographs, a white page and an apricot admissions section. Programme listings and practical school information replace decorative cards and slogans. Fonts are self-hosted under the SIL Open Font License. No autoplay carousels, scroll prompts, tracking scripts or animation dependencies.
 
 ## Status and rights
 

@@ -25,15 +25,15 @@ The following decisions are design judgments informed by the sources below, not 
 | [W3C WAI: Carousel Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/) | Automatically changing slides introduce control, focus and reading-order considerations. | Use a still photographic layout and a user-opened native dialog instead of an autoplay carousel. |
 | [Reggio Children: Values](https://www.reggiochildren.it/en/reggio-emilia-approach/valori-en/) | The relationship between environment, expression and learning provides a useful reference for early-years storytelling. | Give children’s work and interactions visual space. Do not present Jade as a Reggio school. |
 
-## Positioning and visual identity
+## Visual direction
 
-**Proposed position:** a warm, thoughtful Colombo preschool where everyday play helps children grow into themselves.
+The current proposal follows a school prospectus rather than a decorative nursery template. It uses Jade’s original logo, large rectangular photographs, Newsreader for display typography and DM Sans for practical information. A white background, dark ink, fine rules and an apricot admissions section keep the school photography prominent.
 
-“Small hands. Big wonders.” is the proposed creative line. Its job is to be memorable and grounded in an observable image: a child making something. Supporting copy names ordinary experiences instead of stacking abstract claims about excellence, innovation or limitless potential.
+The homepage opens with a teacher and children working together, paired with the outdoor play space. Programmes are presented as a readable index rather than repeated promotional cards. Inner pages cover the approach, facilities and verified leadership names. Captions describe the photographs plainly. The gallery is a photographic record, with a user-opened photo viewer.
 
-The deep green gives Jade a recognisable anchor. Butter yellow adds warmth, cream makes room for photographs, and a restrained terracotta accent marks small details. Bricolage Grotesque provides a distinctive, friendly display face; DM Sans supports readable practical information. Occasional italic serif phrases vary the editorial rhythm. A simple flower and sprout are code-native visual motifs, not a borrowed icon pack or an invented school accreditation mark.
+Copy uses ordinary school language. Programme names, learning activities, location, contact information and admissions questions carry the explanation. There are no invented decorative mascots, handwritten underlines, arched photo frames, repeated motivational slogans or synthetic school images.
 
-The layouts change with the content: an opening photographic composition, an editorial introduction, programme photographs, a paired learning story, practical questions, staggered gallery photographs and a focused admissions form. Variety comes from hierarchy and composition rather than motion effects.
+Additional visual reference: [Pentagram’s education work](https://www.pentagram.com/education), including [The New School identity](https://www.pentagram.com/work/the-new-school/story), informed the principle that a school should have a coherent institution-specific identity. [St Christopher School](https://www.stchris.co.uk/) was visually reviewed as an independent-school reference. The prototype does not copy these organisations’ branding or claim affiliation.
 
 ## Information architecture
 
@@ -42,7 +42,7 @@ The layouts change with the content: an opening photographic composition, an edi
 | Home | Does this feel like somewhere my child could belong? | Explore programmes or arrange a visit. |
 | Our approach | What does learning here mean in practice? | Understand the philosophy and talk to the school. |
 | Programmes | What would be appropriate for my child? | Open an enquiry with that programme selected. |
-| Life at Jade | What might my child experience here? | Inspect photographs and see an illustrative daily rhythm. |
+| Life at Jade | What might my child experience here? | Inspect the school photographs. |
 | Visit & admissions | How do we begin, and what should we ask? | Prepare, review and send a WhatsApp enquiry. |
 | Privacy & credits | Is this official, and what happens to my details? | Read a direct explanation of the prototype and its services. |
 
@@ -53,7 +53,7 @@ The layouts change with the content: an opening photographic composition, an edi
 - No claim that a submitted form books an appointment.
 - No scroll instructions, interaction tutorials, fake live counters, autoplay media or decorative loading screens.
 - No synthetic school photographs or portraits presented as real people.
-- The sample daily rhythm is explicitly illustrative.
+- Everyday activities are described using the school’s published programme; no fictional timetable is presented.
 - Photographs remain the property of their original owners. Existing public publication is not a substitute for the school confirming permission for an official relaunch.
 
 ## A real launch would need
