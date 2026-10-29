@@ -40,6 +40,8 @@ Builds every page and checks local links, fragment targets, image references, fo
 assets/                 Local fonts, original CSS/JS, icons and school photographs
 scripts/build.mjs       Shared layouts and static HTML generation
 scripts/content.mjs     Programmes, leadership and admissions information
+scripts/garden.mjs      Original butterfly and botanical SVG artwork
+assets/garden.*         Hero styling and scroll-driven decorative motion
 scripts/check.mjs       Generated-site validation
 scripts/serve.mjs       Dependency-free local preview server
 docs/RESEARCH.md        Sources, competitive observations and design rationale
@@ -52,7 +54,9 @@ docs/image-credits.json Original photography sources
 
 ## Design
 
-The school’s original logo, Newsreader display typography, DM Sans body text, rectangular documentary photographs, a white page and an apricot admissions section. Programme listings and practical school information replace decorative cards and slogans. Fonts are self-hosted under the SIL Open Font License. No autoplay carousels, scroll prompts, tracking scripts or animation dependencies.
+The school’s original logo and photography anchor the design. The homepage now has a sunny illustrated hero, layered photo frames, three fluttering butterflies and flowers that grow and open as you scroll. The programme and school pages keep a clear editorial layout. Newsreader and DM Sans are self-hosted under the SIL Open Font License. No autoplay carousels, scroll prompts, tracking scripts or animation dependencies.
+
+The decorative garden uses original inline SVG, CSS keyframes and a small scroll controller. A pause control stops the hero animation; the butterflies stop when the hero leaves view. Reduced-motion settings show static artwork. Flowers remain fully visible if JavaScript is unavailable.
 
 ## Status and rights
 

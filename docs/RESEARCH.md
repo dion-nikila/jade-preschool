@@ -27,11 +27,11 @@ The following decisions are design judgments informed by the sources below, not 
 
 ## Visual direction
 
-The current proposal follows a school prospectus rather than a decorative nursery template. It uses Jade’s original logo, large rectangular photographs, Newsreader for display typography and DM Sans for practical information. A white background, dark ink, fine rules and an apricot admissions section keep the school photography prominent.
+The school and programme pages use a prospectus-like structure with Jade’s original logo, school photography, Newsreader display typography and DM Sans for practical information. Following the requested playful direction, the homepage combines a sunny background, layered photo frames, independently fluttering butterflies and botanical SVG flowers that bloom with scrolling. The existing logo colours inform the artwork. A pause control and reduced-motion support are part of that motion design.
 
-The homepage opens with a teacher and children working together, paired with the outdoor play space. Programmes are presented as a readable index rather than repeated promotional cards. Inner pages cover the approach, facilities and verified leadership names. Captions describe the photographs plainly. The gallery is a photographic record, with a user-opened photo viewer.
+The homepage layers a photograph of a teacher and children at the painting table with a photograph of the outdoor play space. Programmes are presented as a readable index rather than repeated promotional cards. Inner pages cover the approach, facilities and verified leadership names. Captions describe the photographs plainly. The gallery is a photographic record, with a user-opened photo viewer.
 
-Copy uses ordinary school language. Programme names, learning activities, location, contact information and admissions questions carry the explanation. There are no invented decorative mascots, handwritten underlines, arched photo frames, repeated motivational slogans or synthetic school images.
+Copy uses ordinary school language. Programme names, learning activities, location, contact information and admissions questions carry the explanation. The school’s logo is retained. The butterflies and planting are decorative illustrations, not a new school mascot. The photographs remain real school images.
 
 Additional visual reference: [Pentagram’s education work](https://www.pentagram.com/education), including [The New School identity](https://www.pentagram.com/work/the-new-school/story), informed the principle that a school should have a coherent institution-specific identity. [St Christopher School](https://www.stchris.co.uk/) was visually reviewed as an independent-school reference. The prototype does not copy these organisations’ branding or claim affiliation.
 

@@ -1,0 +1,871 @@
+/* A small illustrated garden, using Jade's existing colours. */
+.playful-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #fff0b1;
+  padding: 55px 0 75px;
+}
+.playful-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 38px;
+  align-items: center;
+  min-height: 575px;
+}
+.playful-copy {
+  position: relative;
+  z-index: 4;
+  padding-bottom: 15px;
+}
+.playful-copy .eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  margin-bottom: 27px;
+}
+.playful-copy h1 {
+  font: 600 clamp(52px, 5.6vw, 85px) / 1.04 var(--sans);
+  color: #224f3b;
+  letter-spacing: -0.065em;
+}
+.hero-line {
+  display: block;
+  animation: hello-day 0.85s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+.hero-line:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.hero-line:nth-child(3) {
+  animation-delay: 0.24s;
+}
+.hero-line em {
+  color: #c8513b;
+  font: italic 500 1.12em/0.9 var(--serif);
+  letter-spacing: -0.055em;
+  display: inline-block;
+  transform: rotate(-4deg);
+}
+.playful-description {
+  max-width: 350px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #405b45;
+  margin-top: 28px;
+}
+.playful-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 29px;
+}
+.playful-actions .button {
+  background: #24533d;
+  border-color: #24533d;
+  border-radius: 4px;
+  gap: 33px;
+}
+.playful-actions .button:hover {
+  background: #3b7456;
+  border-color: #3b7456;
+}
+.playful-actions .text-link {
+  border: none;
+  font-size: 12px;
+  gap: 22px;
+}
+.playful-art {
+  height: 550px;
+  position: relative;
+  min-width: 0;
+}
+.garden-sky {
+  position: absolute;
+  inset: 5px -18px 10px 5px;
+  border-radius: 48% 52% 45% 55% / 42% 45% 55% 58%;
+  background: #c2e4dc;
+  transform: rotate(7deg);
+}
+.garden-sun {
+  position: absolute;
+  top: -10px;
+  left: 6%;
+  height: 91px;
+  width: 91px;
+  border-radius: 50%;
+  background: #ffc74e;
+  box-shadow: 0 0 0 12px #ffd97066;
+}
+.sky-cloud {
+  position: absolute;
+  background: #fffaf0;
+  width: 98px;
+  height: 27px;
+  border-radius: 30px;
+}
+.sky-cloud::before,
+.sky-cloud::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+.sky-cloud::before {
+  width: 44px;
+  height: 44px;
+  left: 17px;
+  bottom: 0;
+}
+.sky-cloud::after {
+  width: 34px;
+  height: 34px;
+  right: 14px;
+  bottom: 0;
+}
+.cloud-one {
+  right: -5px;
+  top: 65px;
+  transform: rotate(-7deg);
+}
+.cloud-two {
+  left: -20px;
+  bottom: 105px;
+  transform: rotate(-7deg) scale(0.75);
+}
+.play-photo {
+  position: absolute;
+  margin: 0;
+  background: #fffdf5;
+  padding: 10px 10px 0;
+  box-shadow: 0 9px 22px #23483118;
+  transform-origin: center;
+}
+.play-photo img {
+  width: 100%;
+  height: calc(100% - 32px);
+  object-fit: cover;
+}
+.play-photo figcaption {
+  font: 400 13px/1.3 var(--serif);
+  color: #38523e;
+  padding: 9px 3px;
+}
+.play-photo-main {
+  width: 73%;
+  height: 445px;
+  right: 4px;
+  top: 34px;
+  transform: rotate(5deg);
+  animation: photo-arrive-main 1.15s cubic-bezier(0.18, 0.75, 0.2, 1) both;
+}
+.play-photo-main img {
+  object-position: center 26%;
+}
+.play-photo-small {
+  width: 46%;
+  height: 275px;
+  left: -8px;
+  bottom: 3px;
+  transform: rotate(-8deg);
+  z-index: 2;
+  animation: photo-arrive-small 1.25s 0.15s cubic-bezier(0.18, 0.75, 0.2, 1)
+    both;
+}
+.play-photo-small img {
+  object-position: center 40%;
+}
+.hero-ground {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  pointer-events: none;
+  z-index: 5;
+}
+.motion-toggle {
+  position: absolute;
+  top: 13px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  font-size: 9px;
+  line-height: 1.5;
+  color: #486047;
+  border: none;
+  background: transparent;
+  z-index: 10;
+}
+.motion-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+.motion-toggle[aria-pressed="true"] path {
+  fill: currentColor;
+  stroke-width: 0;
+}
+.butterfly-flight {
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: 87px;
+  z-index: 5;
+  pointer-events: none;
+  animation: butterfly-wander 13s ease-in-out infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+.butterfly {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.butterfly-blue {
+  --wing: #72bfe4;
+  --wing-edge: #4876a5;
+  --wing-mark: #e3f7ff;
+}
+.butterfly-pink {
+  --wing: #ed8fb3;
+  --wing-edge: #b55783;
+  --wing-mark: #ffe5eb;
+}
+.butterfly-orange {
+  --wing: #f7ad55;
+  --wing-edge: #bb7544;
+  --wing-mark: #fff5ba;
+}
+.butterfly-wing {
+  transform-box: view-box;
+  transform-origin: 60px 52px;
+  animation: wingbeat 0.48s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.wing-right {
+  animation-delay: -0.055s;
+}
+.hero-butterfly-one {
+  left: -30px;
+  top: 28px;
+  width: 98px;
+  --flight-x: 88px;
+  --flight-y: -30px;
+  transform: rotate(-22deg);
+}
+.hero-butterfly-two {
+  right: -31px;
+  top: 50%;
+  width: 76px;
+  animation-duration: 15s;
+  animation-delay: -5s;
+  --flight-x: -60px;
+  --flight-y: -45px;
+}
+.hero-butterfly-three {
+  left: 34%;
+  bottom: -8px;
+  width: 61px;
+  animation-duration: 17s;
+  animation-delay: -9s;
+  --flight-x: 53px;
+  --flight-y: -40px;
+}
+.hero-in-view .butterfly-flight,
+.hero-in-view .butterfly-wing {
+  animation-play-state: running;
+}
+.bloom-garden {
+  --growth: 1;
+  position: relative;
+  pointer-events: none;
+}
+.garden-motion-ready .bloom-garden {
+  --growth: 0;
+}
+.bloom {
+  --stem: clamp(0, calc(var(--growth) * 1.8), 1);
+  --head: clamp(0, calc((var(--growth) - 0.3) * 2), 1);
+  position: absolute;
+  bottom: 0;
+  width: 145px;
+  height: 200px;
+  overflow: visible;
+}
+.bloom-poppy {
+  --petal-color: #ef8d92;
+  --flower-centre: #f4cc55;
+}
+.bloom-daisy {
+  --petal-color: #fffdf1;
+  --flower-centre: #edbd47;
+}
+.bloom-cornflower {
+  --petal-color: #8b9bd9;
+  --flower-centre: #f5cf67;
+}
+.flower-stem {
+  transform-box: view-box;
+  transform-origin: 110px 289px;
+  transform: scaleY(var(--stem));
+  transition: transform 0.45s ease-out;
+}
+.flower-head-lift {
+  transform: translateY(calc((1 - var(--stem)) * 184px));
+  transition: transform 0.45s ease-out;
+}
+.flower-petal {
+  --petal-growth: clamp(
+    0,
+    calc((var(--growth) - 0.32 - var(--petal) * 0.014) * 2.5),
+    1
+  );
+  transform-box: view-box;
+  transform-origin: 110px 98px;
+  transform: scale(var(--petal-growth));
+  transition: transform 0.4s cubic-bezier(0.18, 0.7, 0.2, 1);
+}
+.flower-centre {
+  transform-box: view-box;
+  transform-origin: 110px 98px;
+  transform: scale(var(--head));
+  transition: transform 0.35s ease-out;
+}
+.flower-sway {
+  transform-box: view-box;
+  transform-origin: 110px 285px;
+}
+.hero-garden {
+  position: absolute;
+  right: -32px;
+  bottom: -15px;
+  width: 260px;
+  height: 210px;
+  z-index: 3;
+}
+.hero-garden .bloom-0 {
+  left: 0;
+  height: 175px;
+  width: 128px;
+  transform: rotate(-12deg);
+}
+.hero-garden .bloom-1 {
+  left: 71px;
+  height: 230px;
+  width: 150px;
+}
+.hero-garden .bloom-2 {
+  left: 146px;
+  height: 170px;
+  width: 125px;
+  transform: rotate(13deg);
+}
+.hero-garden .flower-sway {
+  animation: flower-breeze 5.5s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.hero-garden .bloom-1 .flower-sway {
+  animation-delay: -2s;
+}
+.hero-garden .bloom-2 .flower-sway {
+  animation-delay: -4s;
+}
+.hero-in-view .hero-garden .flower-sway {
+  animation-play-state: running;
+}
+.garden-meadow {
+  height: 205px;
+  margin-top: -42px;
+  margin-bottom: 38px;
+  border-bottom: 1px solid #aec3a652;
+}
+.garden-meadow .bloom-0 {
+  left: 2%;
+  width: 155px;
+  height: 205px;
+  transform: rotate(-9deg);
+}
+.garden-meadow .bloom-1 {
+  left: 22%;
+  width: 135px;
+  height: 170px;
+  transform: rotate(7deg);
+  --petal-color: #f4d56b;
+}
+.garden-meadow .bloom-2 {
+  left: 43%;
+  height: 220px;
+  width: 160px;
+  transform: rotate(-5deg);
+}
+.garden-meadow .bloom-3 {
+  left: 66%;
+  width: 145px;
+  height: 185px;
+  transform: rotate(8deg);
+  --petal-color: #fff3dd;
+}
+.garden-meadow .bloom-4 {
+  right: 0;
+  height: 210px;
+  width: 155px;
+  transform: rotate(11deg);
+  --petal-color: #f3a45c;
+}
+.garden-after-play {
+  height: 110px;
+  position: relative;
+}
+.garden-patch {
+  position: absolute;
+  width: 260px;
+  height: 170px;
+  right: 0;
+  bottom: -20px;
+}
+.garden-patch .bloom-0 {
+  width: 125px;
+  height: 150px;
+  left: 0;
+  transform: rotate(-10deg);
+}
+.garden-patch .bloom-1 {
+  height: 190px;
+  width: 140px;
+  left: 66px;
+  --petal-color: #f3d16b;
+}
+.garden-patch .bloom-2 {
+  height: 155px;
+  width: 120px;
+  left: 139px;
+  transform: rotate(10deg);
+}
+.footer-garden-wrap {
+  height: 0;
+  position: relative;
+}
+.footer-garden {
+  position: absolute;
+  width: 230px;
+  height: 135px;
+  right: 0;
+  bottom: 0;
+}
+.footer-garden .bloom-0 {
+  width: 100px;
+  height: 135px;
+  left: 0;
+  transform: rotate(-12deg);
+}
+.footer-garden .bloom-1 {
+  width: 115px;
+  height: 165px;
+  left: 53px;
+}
+.footer-garden .bloom-2 {
+  width: 98px;
+  height: 125px;
+  left: 116px;
+  transform: rotate(12deg);
+}
+.footer-invitation {
+  padding-bottom: 110px;
+}
+.footer-address {
+  position: relative;
+  z-index: 2;
+}
+.motion-paused .playful-hero * {
+  animation-play-state: paused !important;
+}
+@keyframes wingbeat {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0.4);
+  }
+}
+@keyframes butterfly-wander {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+  28% {
+    transform: translate3d(var(--flight-x), var(--flight-y), 0) rotate(15deg);
+  }
+  55% {
+    transform: translate3d(
+        calc(var(--flight-x) * 0.4),
+        calc(var(--flight-y) * -1),
+        0
+      )
+      rotate(-8deg);
+  }
+  78% {
+    transform: translate3d(
+        calc(var(--flight-x) * -0.25),
+        calc(var(--flight-y) * 0.6),
+        0
+      )
+      rotate(12deg);
+  }
+}
+@keyframes flower-breeze {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+@keyframes hello-day {
+  from {
+    opacity: 1;
+    transform: translateY(8px) rotate(-1deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes photo-arrive-main {
+  from {
+    opacity: 1;
+    transform: translateY(32px) rotate(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(5deg);
+  }
+}
+@keyframes photo-arrive-small {
+  from {
+    opacity: 1;
+    transform: translateY(45px) rotate(-13deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-8deg);
+  }
+}
+@media (max-width: 1050px) {
+  .playful-hero-grid {
+    gap: 25px;
+  }
+  .playful-copy h1 {
+    font-size: 6.1vw;
+  }
+  .playful-description {
+    font-size: 13px;
+    max-width: 300px;
+  }
+  .playful-actions {
+    gap: 18px;
+  }
+  .playful-actions .button {
+    font-size: 11px;
+    gap: 22px;
+    padding-inline: 17px;
+  }
+  .playful-actions .text-link {
+    font-size: 11px;
+    gap: 13px;
+  }
+  .playful-art {
+    height: 500px;
+  }
+  .play-photo-main {
+    height: 405px;
+    width: 76%;
+  }
+  .play-photo-small {
+    height: 245px;
+    width: 49%;
+  }
+  .hero-garden {
+    transform: scale(0.85);
+    transform-origin: bottom right;
+  }
+  .hero-butterfly-one {
+    width: 80px;
+  }
+  .garden-meadow .bloom {
+    max-width: 135px;
+  }
+}
+@media (max-width: 700px) {
+  .playful-hero {
+    padding: 41px 0 58px;
+  }
+  .playful-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    min-height: 0;
+  }
+  .playful-copy {
+    padding: 0;
+  }
+  .playful-copy .eyebrow {
+    font-size: 8px;
+    margin-bottom: 23px;
+  }
+  .playful-copy h1 {
+    font-size: clamp(45px, 12.3vw, 70px);
+    line-height: 1.04;
+    letter-spacing: -0.06em;
+  }
+  .hero-line em {
+    font-size: 1.15em;
+  }
+  .playful-description {
+    font-size: 12px;
+    line-height: 1.85;
+    max-width: 310px;
+    margin-top: 23px;
+  }
+  .playful-actions {
+    gap: 24px;
+    margin-top: 23px;
+  }
+  .playful-actions .button {
+    font-size: 11px;
+    gap: 26px;
+    min-height: 49px;
+    padding: 14px 16px;
+  }
+  .playful-actions .text-link {
+    font-size: 11px;
+    gap: 13px;
+  }
+  .playful-art {
+    height: 450px;
+    margin-top: 9px;
+  }
+  .garden-sky {
+    inset: 5px -6px 10px 5px;
+  }
+  .play-photo-main {
+    height: 360px;
+    right: 1px;
+    top: 18px;
+    width: 75%;
+    padding: 8px 8px 0;
+  }
+  .play-photo-small {
+    height: 235px;
+    width: 47%;
+    bottom: 0;
+    left: 0;
+    padding: 7px 7px 0;
+  }
+  .play-photo figcaption {
+    font-size: 11px;
+    padding: 9px 1px;
+  }
+  .play-photo-main img {
+    object-position: center 25%;
+  }
+  .hero-garden {
+    right: -22px;
+    bottom: -20px;
+    transform: scale(0.72);
+  }
+  .garden-sun {
+    width: 64px;
+    height: 64px;
+    top: -11px;
+    left: 4%;
+    box-shadow: 0 0 0 8px #ffd97066;
+  }
+  .cloud-one {
+    width: 75px;
+    height: 22px;
+    right: -8px;
+    top: 70px;
+  }
+  .cloud-two {
+    bottom: 60px;
+  }
+  .hero-butterfly-one {
+    width: 76px;
+    left: -5px;
+    top: -10px;
+    --flight-x: 47px;
+    --flight-y: -10px;
+  }
+  .hero-butterfly-two {
+    width: 59px;
+    right: -10px;
+    top: 45%;
+    --flight-x: -35px;
+    --flight-y: -35px;
+  }
+  .hero-butterfly-three {
+    width: 52px;
+    bottom: -6px;
+    left: 35%;
+    --flight-x: 32px;
+    --flight-y: -24px;
+  }
+  .motion-toggle {
+    right: 12px;
+    top: 8px;
+    font-size: 8px;
+    padding: 4px;
+  }
+  .motion-toggle svg {
+    width: 13px;
+    height: 13px;
+  }
+  .hero-ground {
+    height: 22px;
+  }
+  .garden-meadow {
+    height: 155px;
+    margin-top: -12px;
+    margin-bottom: 28px;
+  }
+  .garden-meadow .bloom-0 {
+    left: -12px;
+    height: 150px;
+    width: 110px;
+  }
+  .garden-meadow .bloom-1 {
+    left: 17%;
+    height: 112px;
+    width: 85px;
+  }
+  .garden-meadow .bloom-2 {
+    left: 35%;
+    height: 170px;
+    width: 125px;
+  }
+  .garden-meadow .bloom-3 {
+    left: 60%;
+    height: 120px;
+    width: 90px;
+  }
+  .garden-meadow .bloom-4 {
+    right: -20px;
+    height: 153px;
+    width: 110px;
+  }
+  .garden-after-play {
+    height: 105px;
+  }
+  .garden-patch {
+    transform: scale(0.8);
+    transform-origin: bottom right;
+    bottom: -16px;
+  }
+  .footer-invitation {
+    padding-bottom: 120px;
+  }
+  .footer-garden {
+    right: 0;
+    transform: scale(0.85);
+    transform-origin: bottom right;
+  }
+}
+@media (max-width: 370px) {
+  .playful-copy h1 {
+    font-size: 12.7vw;
+  }
+  .playful-copy .eyebrow {
+    font-size: 7px;
+  }
+  .playful-actions {
+    gap: 14px;
+  }
+  .playful-actions .button {
+    font-size: 10px;
+    gap: 17px;
+    padding-inline: 13px;
+  }
+  .playful-actions .text-link {
+    font-size: 10px;
+    gap: 9px;
+  }
+  .playful-art {
+    height: 400px;
+  }
+  .play-photo-main {
+    height: 325px;
+  }
+  .play-photo-small {
+    height: 210px;
+  }
+  .garden-meadow .bloom-3 {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .playful-hero *,
+  .butterfly-flight,
+  .butterfly-wing {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero-line {
+    opacity: 1;
+  }
+  .motion-toggle {
+    display: none;
+  }
+  .flower-stem,
+  .flower-petal,
+  .flower-centre,
+  .flower-head-lift {
+    transition: none;
+  }
+}
+
+.butterfly-blue .butterfly-wing {
+  animation-duration: 0.51s;
+}
+.butterfly-pink .butterfly-wing {
+  animation-duration: 0.59s;
+  animation-delay: -0.17s;
+}
+.butterfly-orange .butterfly-wing {
+  animation-duration: 0.43s;
+  animation-delay: -0.28s;
+}
+@media (max-width: 370px) {
+  .playful-actions {
+    gap: 15px;
+    flex-wrap: nowrap;
+  }
+  .playful-actions .button {
+    font-size: 9px;
+    gap: 11px;
+    padding-inline: 11px;
+  }
+  .playful-actions .button svg {
+    width: 19px;
+    height: 19px;
+  }
+  .playful-actions .text-link {
+    font-size: 9px;
+    gap: 6px;
+  }
+  .playful-actions .text-link svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+/* Keep the footer planting below the contact details. */
+.footer-invitation {
+  padding-bottom: 175px;
+}
+@media (max-width: 700px) {
+  .footer-invitation {
+    padding-bottom: 155px;
+  }
+}
+.garden-meadow {
+  overflow: hidden;
+}

@@ -23,3 +23,13 @@ The public visual review caught cached styles from the earlier design. CSS, font
 ## Limits
 
 These checks are not a comprehensive accessibility certification, a multi-browser device lab, or a performance benchmark. School information and photography permissions require school confirmation before an official relaunch.
+
+## Animated hero and garden
+
+- Three butterflies render with independent wing timing and looping flight paths.
+- Browser inspection confirmed flight and wing animations run while the hero is visible and pause when it leaves the viewport.
+- The pause control was clicked and both animation states were confirmed paused, then resumed.
+- Scrolling the meadow from 728 pixels below the viewport top to 408 pixels changed growth from 0.080 to 0.880, visibly opening the flowers.
+- Homepage checked at 390 and 320 pixels without horizontal overflow; both hero actions remain on the same row.
+- Reduced-motion rules and a no-JavaScript static fallback are included.
+- The CSS, fonts and scripts continue to use fingerprinted asset paths.
