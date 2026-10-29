@@ -16,7 +16,9 @@
 
 The enquiry composer and photo viewer were browser-tested during the first implementation. A programme-specific link preselected Nursery; the form produced an encoded WhatsApp message for review without sending it; editing preserved entries. The native photo dialog closed with Escape and returned focus to its trigger. The current templates retain the corresponding selectors and the same interaction code.
 
-Local browser approval checks intermittently timed out during the current revision. Do not treat the earlier interaction checks as a complete new browser regression test. Automated build and link checks pass on the revised pages.
+Local browser approval checks intermittently timed out. On the deployed revision, the Nursery programme link, programme preselection and enquiry preview were then verified successfully without sending a message. This remains a focused check rather than a complete browser regression test. Automated build and link checks pass.
+
+The public visual review caught cached styles from the earlier design. CSS, font stylesheets, JavaScript and the favicon now use content-fingerprinted filenames so revised pages request the corresponding assets.
 
 ## Limits
 

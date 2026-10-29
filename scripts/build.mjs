@@ -1,6 +1,7 @@
-import { mkdir, rm, cp, writeFile } from "node:fs/promises";
+import { mkdir, rm, cp, writeFile, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { programmes, faqs, leadership } from "./content.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -10,6 +11,16 @@ await mkdir(out, { recursive: true });
 await cp(path.join(root, "assets"), path.join(out, "assets"), {
   recursive: true,
 });
+// Fingerprinted paths keep returning visitors from mixing releases.
+const versioned = {};
+for (const name of ["styles.css", "fonts.css", "main.js", "favicon.svg"]) {
+  const contents = await readFile(path.join(root, "assets", name));
+  const hash = createHash("sha256").update(contents).digest("hex").slice(0, 12);
+  const ext = path.extname(name);
+  const filename = `${path.basename(name, ext)}.${hash}${ext}`;
+  await writeFile(path.join(out, "assets", filename), contents);
+  versioned[name] = filename;
+}
 const arrow =
   '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>';
 const northeast =
@@ -34,7 +45,7 @@ function logo(b) {
 function shell(slug, title, description, body, override) {
   const b = override ?? (slug ? "../" : "./");
   return `<!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="robots" content="noindex,follow"><title>${title} | Jade Preschool & Day Care</title><meta name="description" content="${description}"><meta property="og:title" content="${title} | Jade Preschool & Day Care"><meta property="og:description" content="${description}"><meta property="og:type" content="website"><meta property="og:image" content="https://dion-nikila.github.io/jade-preschool/assets/images/jade-7.jpg"><link rel="icon" href="${b}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${b}assets/fonts.css"><link rel="stylesheet" href="${b}assets/styles.css"><script src="${b}assets/main.js" defer></script></head>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="robots" content="noindex,follow"><title>${title} | Jade Preschool & Day Care</title><meta name="description" content="${description}"><meta property="og:title" content="${title} | Jade Preschool & Day Care"><meta property="og:description" content="${description}"><meta property="og:type" content="website"><meta property="og:image" content="https://dion-nikila.github.io/jade-preschool/assets/images/jade-7.jpg"><link rel="icon" href="${b}assets/${versioned["favicon.svg"]}" type="image/svg+xml"><link rel="stylesheet" href="${b}assets/${versioned["fonts.css"]}"><link rel="stylesheet" href="${b}assets/${versioned["styles.css"]}"><script src="${b}assets/${versioned["main.js"]}" defer></script></head>
 <body class="page-${slug || "home"}"><a class="skip-link" href="#main">Skip to content</a>
 <header class="header"><div class="nav-wrap"><a class="brand" href="${b}" aria-label="Jade Preschool and Day Care home">${logo(b)}</a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Open menu"><span></span><span></span></button><nav id="navigation" aria-label="Main navigation">${nav.map(([n, s]) => `<a href="${link(b, s)}" ${s === slug ? 'aria-current="page"' : ""}>${n}</a>`).join("")}<a class="nav-visit" href="${link(b, "visit")}" ${slug === "visit" ? 'aria-current="page"' : ""}>Arrange a visit ${northeast}</a></nav></div></header>
 <main id="main">${body(b)}</main>${footer(b)}
@@ -120,7 +131,7 @@ ${intro("INFORMATION", "Privacy & credits.", "About this independent prototype a
 const pages = [
   [
     "",
-    "Jade Preschool & Day Care, Colombo",
+    "Preschool & Day Care in Colombo",
     "Preschool and day care in Colombo. Explore Jade’s school, programmes, photography and visit enquiries.",
     home,
   ],
